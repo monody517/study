@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS Bin</title>
+    <style>
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      header {
+        border: 1px solid green;
+        width: 600px;
+      }
+      .logo {
+        border: 1px solid red;
+        width: 100px;
+        height: 50px;
+        float: left;
+      }
+      nav {
+        border: 1px solid black;
+        width: 150px;
+        height: 50px;
+        float: right;
+      }
+      .content {
+        width: 500px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      aside {
+        outline: 1px solid red;
+        height: 200px;
+        width: 100px;
+        float: left;
+      }
+      main {
+        outline: 1px solid green;
+        height: 200px;
+        width: 300px;
+        float: left;
+      }
+      .ad {
+        outline: 1px solid blue;
+        height: 200px;
+        width: 100px;
+        float: left;
+      }
+      .imagelist {
+        border: 1px solid;
+        width: 500px;
+        float: left;
+      }
+
+      .imagelist > .x > .img {
+        background: #faa;
+        width: 119px;
+        height: 100px;
+        float: left;
+        margin-right: 8px;
+      }
+      .imagelist > .x {
+        margin-right: -8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="clearfix">
+      <div class="logo">HTML</div>
+      <nav>dao</nav>
+    </header>
+    <div class="concent clearfix">
+      <aside></aside>
+      <main></main>
+      <div class="ad"></div>
+    </div>
+    <div class="imagelist clearfix">
+      <div class="x clearfix">
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+      </div>
+    </div>
+  </body>
+</html>
