@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+      *{
+  margin:0px;padding:0px;box-sizing:border-box;
+}
+#heart{
+  margin:200px;
+  position: relative;
+  transition:all .5s;
+}
+#heart:hover{
+  transform:scale(1.5)
+}
+#heart > .left{
+  width: 103px;
+  height: 101px;
+  background: red;
+  border-radius:50%;
+  position: absolute;
+  transform:translate(-42%,-42%);
+}
+#heart > .right{
+  width: 103px;
+  height: 101px;
+  background: red;
+  border-radius:50%;
+  position: absolute;
+  transform:translate(42%,-43%);
+}
+#heart > .bottom{
+  width: 100px;
+  height: 100px;
+  background: red;
+  transform:rotate(45deg);
+}
+  </style>
+</head>
+<body>
+<div id="heart">
+  <div class="left"></div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+</div>
+</body>
+</html>
