@@ -1,1 +1,0 @@
-console.log('woshi 2.js')
