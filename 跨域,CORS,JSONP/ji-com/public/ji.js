@@ -1,8 +1,24 @@
-const request = new XMLHttpRequest()
-request.open('GET','http://127.0.0.1:8080/friends.json')
-request.onreadystatechange = () => {
-    if(request.readyState === 4 && request.status === 200){
-        console.log(request.response)
-    }
+function jsonp(url){
+    return new Promise((resolve,reject)=>{
+        const random = 'jiJSONPCallbackName' + Math.random()
+        window[random] = (data) => {
+            resolve(data)
+        }
+        const script = document.createElement('script')
+        script.src = `${url}?callback=${random}`
+        script.onload = () => {
+            script.remove()
+        }
+        script.onerror = () => {
+            reject()
+        }
+        document.body.append(script)    
+    })
 }
-request.send()
+jsonp('http://127.0.0.1:8888/friends.js')
+.then((data) => {
+    console.log(data)
+})
+
+
+

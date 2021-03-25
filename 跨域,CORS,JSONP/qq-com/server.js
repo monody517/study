@@ -34,10 +34,23 @@ var server = http.createServer(function(request, response){
   }  else if(path === '/friends.json'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/json;charset=utf-8')
-    console.log(request.headers['referer'])
-    response.setHeader('Access-Control-Allow-Origin','http://localhost:8888')
+    response.setHeader('Access-Control-Allow-Origin','http://localhost:9999')
     response.write(fs.readFileSync('./public/friends.json'))
     response.end()
+  } else if(path === '/friends.js'){
+    if(request.headers["referer"].indexOf("http://localhost:9999") === 0){
+      response.statusCode = 200
+      response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
+      const string = fs.readFileSync('./public/friends.js')
+      const data = fs.readFileSync('./public/friends.json')
+      const string2 = string.toString().replace('{data}',data.toString()).replace('{{xxx}}',query.callback)
+      response.write(string2)
+      response.end()
+    }else{
+      response.statusCode =404
+      response.end()
+    }
+    
   }else {
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
