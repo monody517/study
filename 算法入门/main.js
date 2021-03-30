@@ -62,8 +62,6 @@ let swap = (arr,a,b) => {
 let sort = (numbers) => {
     for(let i = 0;i < numbers.length -1;i++){
         let index = minIndex(numbers.slice(i)) + i
-        console.log(`index:${index}`)
-        console.log(`i:${i}`)
         if(index !== i){
             swap(numbers,index,i)
         }
